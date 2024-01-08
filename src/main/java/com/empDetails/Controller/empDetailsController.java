@@ -5,10 +5,7 @@ import com.empDetails.Repository.empRepository;
 import com.empDetails.Service.ServiceImpl.empServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/emp")
@@ -27,4 +24,10 @@ public class empDetailsController {
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 
+    @DeleteMapping("{empId}")
+    public ResponseEntity<String> deleteempDetails(@PathVariable long empId)
+    {
+        empService.deleteEmpDetailsService(empId);
+        return new ResponseEntity<>("Emplyee deleted Successfully",HttpStatus.OK);
+    }
 }

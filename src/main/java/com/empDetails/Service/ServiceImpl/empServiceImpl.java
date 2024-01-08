@@ -28,4 +28,10 @@ public class empServiceImpl implements empService {
 
 
     }
+
+    @Override
+    public void deleteEmpDetailsService(long empId) {
+        empRepo.deleteById(empId);
+
+    }
 }
